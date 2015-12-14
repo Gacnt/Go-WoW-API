@@ -3,6 +3,8 @@ An API for World of Warcraft
 
 Currently in the works
 
+[API In Depth](https://godoc.org/github.com/Gacnt/Go-WoW-API)
+
 # Installation
 
 `go get github.com/Gacnt/Go-WoW-API`
