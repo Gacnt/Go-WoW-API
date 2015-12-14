@@ -1,7 +1,6 @@
 package wowapi
 
 import (
-	"encoding/json"
 	"io"
 	"log"
 	"net/http"
@@ -12,7 +11,6 @@ type WowAPI struct {
 	Locale string
 	APIKey string
 }
-
 
 // NewAPI will create a new API helper
 func NewAPI(apikey, locale string) *WowAPI {

@@ -39,31 +39,82 @@ type CharacterTalents struct {
 	Talents []Talent `json:"talents"`
 }
 
-type Items struct {
+type CharacterItems struct {
 	CharacterProfile
-	Items Item `json:"items"`
+	Items ItemList `json:"items"`
 }
 
-type Item struct {
+type ItemList struct {
 	AverageItemLevel         int        `json:"averageItemLevel"`
 	AverageItemLevelEquipped int        `json:"averageItemLevelEquipped"`
-	Head					 ItemDetail `json:"head"`
+	Head                     ItemDetail `json:"head"`
 	Neck                     ItemDetail `json:"neck"`
 	Shoulder                 ItemDetail `json:"shoulder"`
 	Back                     ItemDetail `json:"back"`
 	Chest                    ItemDetail `json:"chest"`
-	Shirt					 ItemDetail `json:"shirt"`
+	Shirt                    ItemDetail `json:"shirt"`
 	Wrist                    ItemDetail `json:"wrist"`
 	Hands                    ItemDetail `json:"hands"`
 	Waist                    ItemDetail `json:"waist"`
 	Legs                     ItemDetail `json:"legs"`
 	Feet                     ItemDetail `json:"feet"`
 	Finger1                  ItemDetail `json:"finger1"`
-	Finger2					 ItemDetail `json:"finger2"`
-	Trinket1				 ItemDetail `json:"trinket1"`
-	Trinket2				 ItemDetail `json:"trinket2"`
-	MainHand				 ItemDetail `json:"mainHand"`
-	OffHand					 ItemDetail `json:"offHand"`
+	Finger2                  ItemDetail `json:"finger2"`
+	Trinket1                 ItemDetail `json:"trinket1"`
+	Trinket2                 ItemDetail `json:"trinket2"`
+	MainHand                 ItemDetail `json:"mainHand"`
+	OffHand                  ItemDetail `json:"offHand"`
+}
+
+type ItemDetail struct {
+	ID            int              `json:"id"`
+	Name          string           `json:"name"`
+	Icon          string           `json:"icon"`
+	Quality       int           `json:"quality"`
+	ItemLevel     int           `json:"itemLevel"`
+	ToolTipParams ItemToolTipParam `json:"tooltipParams"`
+	Stats         []ItemStats      `json:"stats"`
+	Armor         int              `json:"armor"`
+	WeaponInfo    ItemWeaponInfo   `json:"weaponInfo"`
+	Context       string           `json:"context"`
+	BonusLists    []int            `json:"bonusLists"`
+}
+
+type ItemWeaponInfo struct {
+	Damage      ItemDamage `json:"damage"`
+	WeaponSpeed float32    `json:"weaponSpeed"`
+	DPS         float32    `json:"dps"`
+}
+
+type ItemDamage struct {
+	Min      int     `json:"min"`
+	Max      int     `json:"max"`
+	ExactMin float32 `json:"exactMin"`
+	ExactMax float32 `json:"exactMax"`
+}
+
+type ItemStats struct {
+	Stat   int `json:"stat"`
+	Amount int `json:"amount"`
+}
+
+type ItemToolTipParam struct {
+	Set			   []int       `json:"set"`
+	Gem0		   int		   `json:"gem0"`
+	Gem1		   int		   `json:"gem1"`
+	Gem2		   int		   `json:"gem2"`
+	Gem3		   int		   `json:"gem3"`
+	Tinker		   int         `json:"tinker"`
+	Enchant        int         `json:"enchant"`
+	TransmogItem   int         `json:"transmogItem"`
+	Upgrade        ItemUpgrade `json:"upgrade"`
+	TimeWakerLevel int         `json:"timewakerLevel"`
+}
+
+type ItemUpgrade struct {
+	Current            int `json:"current"`
+	Total              int `json:"total"`
+	ItemLevelIncrement int `json:"itemLevelIncrement"`
 }
 
 type Talent struct {
