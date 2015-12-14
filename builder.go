@@ -7,6 +7,22 @@ import (
 	"net/http"
 )
 
+// Class will just match the class number to a string
+var Class = map[int]string{
+	0: "None",
+	1: "Warrior",
+	2: "Paladin",
+	3: "Hunter",
+	4: "Rogue",
+	5: "Priest",
+	6: "Death Knight",
+	7: "Shaman",
+	8: "Mage",
+	9: "Warlock",
+	10: "Monk",
+	11: "Druid",
+}
+
 // WowAPI is the struct for the holder
 type WowAPI struct {
 	Locale string
